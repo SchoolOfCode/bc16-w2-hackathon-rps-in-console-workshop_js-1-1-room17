@@ -52,5 +52,7 @@ while(startGame === true){
 
     //option to replay with same score or reset to 0
 
+    //what happens when you put an answer in that is not 1, 2 or 3?
+
     
 }
