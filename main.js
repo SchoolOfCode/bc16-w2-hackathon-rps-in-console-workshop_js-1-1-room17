@@ -10,6 +10,7 @@ while(startGame === true){
     let playAgain;
     let guess = Number(prompt('3, 2, 1, Go!!! \nRemember that:\n1 for Rock ⚫ \n2 for Paper 📜\n3 for Scissor ✂.'));
     let answer = Math.ceil(Math.random() * 3)
+    let reset;
 
     //make a if statement to compare guess to answer 
     if(guess === 1 && answer === 3){
@@ -46,13 +47,22 @@ while(startGame === true){
     // paper 2 > rock 1
 
     playAgain = confirm('Do you want to play again?')
-    if(playAgain !== true){
+    if(playAgain !== true){  
         break;
+    } else if(playAgain === true){
+        reset = confirm(`If you would like to continue with your current score, press "OK".\nIf you would like to reset your score to zero, press "Cancel".`)
+    }
+    if(reset !== true){
+        score = 0;
+        pcScore= 0;
     }
 
-    //option to replay with same score or reset to 0
+
+    //PLAN
 
     //what happens when you put an answer in that is not 1, 2 or 3?
+
+    //add in a name for an input
 
     
 }
