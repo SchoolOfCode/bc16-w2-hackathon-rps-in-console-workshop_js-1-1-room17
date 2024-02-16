@@ -1,5 +1,5 @@
 let username = prompt(`Enter your name!`);
-let startGame = confirm('Do you want to play a game of Rock, Paper and Scissor? 😁')
+let startGame = confirm('Do you want to play a game of Rock, Paper, Scissors? 😁')
 let score = 0;
 let pcScore = 0;
 
@@ -19,7 +19,7 @@ function isEmpty(x){
 if (startGame === true){
     startGame = confirm('Welcome to the Game!\nYou will input:\n1 for Rock ⚫ \n2 for Paper 📜\n3 for Scissor ✂ \nAre you ready to begin?');
 } else {
-    alert(`Sorry you don't want to play \nIf you want to replay press f5`)
+    alert(`Sorry you don't want to play! \nIf you want to replay, just press f5`)
 }
  
     
@@ -31,7 +31,17 @@ while(startGame === true){
     let reset;
     username = username.charAt(0).toLocaleUpperCase() + username.slice(1);
 
-    //make a if statement to compare guess to answer 
+ isGuessValid(guess)
+
+ function isGuessValid(y){
+    while(!/^[1-3]+$/.test(y)){
+        guess = Number(prompt('Your input must be a 1, 2 or 3.\nRemember that:\n1 for Rock ⚫ \n2 for Paper 📜\n3 for Scissor ✂.'))
+        if(guess === 1 || guess === 2 || guess === 3){
+            break;
+        }
+    }
+}
+
     if(guess === 1 && answer === 3){
         score++
         alert(`Congratulations ${username}! 👏 Your rock beat the computers scissors.\nYour score now is: ${score}.\nThe computer score now is: ${pcScore}.`)
@@ -60,11 +70,7 @@ while(startGame === true){
         alert(`What are the odds! 😮 You drew with the computer.\nYour score now is: ${score}.\nThe computer score now is: ${pcScore}.`)
     }
 
-    // logic
-    // rock 1 > scissors 3
-    // scissors 3 > paper 2
-    // paper 2 > rock 1
-
+    
     playAgain = confirm(`${username}, do you want to play again?`)
     if(playAgain !== true){  
         break;
@@ -77,10 +83,9 @@ while(startGame === true){
     }
 
 
-    //PLAN
-
-    //what happens when you put an answer in that is not 1, 2 or 3?
-
-    
+    // logic
+    // rock 1 > scissors 3
+    // scissors 3 > paper 2
+    // paper 2 > rock 1
     
 }
