@@ -1,22 +1,32 @@
 let startGame = confirm('Do you want to play a game of Rock, Paper and Scissor? 😁')
 let score = 0;
 let pcScore = 0;
-let username;
+let username = prompt(`Enter your name!`);
+
+isEmpty(username)
+
+function isEmpty(x){
+    while(x.length > 10 || typeof x == 'number' || x.length < 1){
+        username = prompt(`You've entered a invalid name.\nEnter a name between 1 and 10 characters.`);
+        if(username.length < 10 && username.length > 1 && typeof x == 'string'){
+            break;
+        }
+    }
+}
+
 
 if (startGame === true){
-    username = prompt("What is your name?");
-    startGame = confirm('Welcome to the Game!\nYou will input:\n1 for Rock ⚫ \n2 for Paper 📜\n3 for Scissor ✂ \nAre you ready to begin?')
-    ;
+    startGame = confirm('Welcome to the Game!\nYou will input:\n1 for Rock ⚫ \n2 for Paper 📜\n3 for Scissor ✂ \nAre you ready to begin?');
 };
  
     
-
-    while(startGame === true){
+while(startGame === true){
    
     let playAgain;
     let guess = Number(prompt('3, 2, 1, Go!!! \nRemember that:\n1 for Rock ⚫ \n2 for Paper 📜\n3 for Scissor ✂.'));
     let answer = Math.ceil(Math.random() * 3)
     let reset;
+    username = username.charAt(0).toLocaleUpperCase() + username.slice(1);
 
     //make a if statement to compare guess to answer 
     if(guess === 1 && answer === 3){
