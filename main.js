@@ -1,14 +1,15 @@
+let username = prompt(`Enter your name!`);
 let startGame = confirm('Do you want to play a game of Rock, Paper and Scissor? 😁')
 let score = 0;
 let pcScore = 0;
-let username = prompt(`Enter your name!`);
+
 
 isEmpty(username)
 
 function isEmpty(x){
-    while(x.length > 10 || typeof x == 'number' || x.length < 1){
+    while(x.length > 10 || !/^[a-zA-Z]+$/.test(x) || !x){
         username = prompt(`You've entered a invalid name.\nEnter a name between 1 and 10 characters.`);
-        if(username.length < 10 && username.length > 1 && typeof x == 'string'){
+        if(username.length < 10 && username.length > 1 && /^[a-zA-Z]+$/.test(x)){
             break;
         }
     }
@@ -17,7 +18,9 @@ function isEmpty(x){
 
 if (startGame === true){
     startGame = confirm('Welcome to the Game!\nYou will input:\n1 for Rock ⚫ \n2 for Paper 📜\n3 for Scissor ✂ \nAre you ready to begin?');
-};
+} else {
+    alert(`Sorry you don't want to play \nIf you want to replay press f5`)
+}
  
     
 while(startGame === true){
